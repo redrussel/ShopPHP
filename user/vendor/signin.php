@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('connect.php');
+require_once ('connect.php');
 
 $email = $_POST['email'];
 $password = md5($_POST['password']);
@@ -24,4 +24,3 @@ if (mysqli_num_rows($check_user) > 0) {
     $_SESSION['message_bad'] = 'Неправильный логин или пароль';
     header('Location: ../loginscreen.php'); 
 }
-?>

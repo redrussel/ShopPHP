@@ -22,7 +22,7 @@ $Reg_Date = date('Y-m-d H:i:s');
 
             $password = md5($password);
 
-            mysqli_query($connect, "INSERT INTO `users` (`id`, `email`, `login`, `password`, `avatar`, `reg_date`) VALUES (NULL, '$email', '$login', '$password', '$path', '$Reg_Date')");
+            mysqli_query($connect, "INSERT INTO `users` (`id`, `email`, `login`, `password`, `avatar`) VALUES (NULL, '$email', '$login', '$password', '$path')");
          
             $_SESSION['message_good'] = 'Вы успешно создали аккаунт!';
             header('Location: ../loginscreen.php'); 
@@ -34,4 +34,3 @@ $Reg_Date = date('Y-m-d H:i:s');
             header('Location: ../register.php');  //И перенаправит сюда(на ту же страницу)
          }
 
-?>
