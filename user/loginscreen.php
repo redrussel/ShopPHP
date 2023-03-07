@@ -10,41 +10,19 @@ if ($_SESSION['user']) {
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link href="\bootstrap\dist\css\bootstrap.css" rel="stylesheet">
-  <link rel="stylesheet" href="/s">
+    <link href="../../bootstrap/dist/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../StyleDIR\style.scss">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Авторизация</title>
 </head>
 
 <body>
   <header>
-    <nav id="navbar" class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/NotLaravelProject/main.php">Назад на главную</a>
-            </li>
-        </div>
-      </div>
-    </nav>
-
-    <script>
-      window.addEventListener('scroll', e => {
-        let.navbar = document.getElementById('navbar').classList
-        let active_class = "navbar_scrolled"
-
-        if (scrollY > 400) navbar.add(active_class)
-        else navbar.remove(active_class)
-      })
-    </script>
 
 
   </header>
 
 
-  <div id="logplace" class="d-flex align-items-center justify-content-center">
-    <div class="container">
 
       <?php
       $message = $_SESSION['message_good'] ?? '';
@@ -63,7 +41,7 @@ if ($_SESSION['user']) {
       ?>
 
 
-      <div class="row justify-content-center">
+
 
         <form action="vendor/signin.php" method="post">
 
@@ -78,9 +56,7 @@ if ($_SESSION['user']) {
           <a href="register.php">Зарегистрироваться</a>
 
         </form>
-      </div>
-    </div>
-  </div>
+
 </body>
 
 </html>
