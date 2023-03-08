@@ -6,7 +6,6 @@ if (!$_SESSION['user']) {
 
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +17,19 @@ if (!$_SESSION['user']) {
     <title>Профиль <?= $_SESSION['user']['id'] ?></title>
 </head>
 
+
+
 <body>
 
 <header>
     <?php include '../navbar.php'?>
 </header>
+
+
+<section class="d-flex justify-content-center align-items-center-center">
+
+
+</section>
 
 
 

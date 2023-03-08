@@ -23,13 +23,8 @@ if ($_SESSION['user']) {
     </header>
 
 
-            <?php
-            $message = $_SESSION['message_bad'] ?? '';
-            if (!empty($message)) {
-                echo '<div class="alert alert-danger">' . $message . '</div>';
-                unset($_SESSION['message_bad']);
-            }
-            ?>
+
+        <section class="d-flex justify-content-center align-items-center-center">
 
                 <form action="vendor/signup.php" method="post" enctype="multipart/form-data">
 
@@ -56,6 +51,17 @@ if ($_SESSION['user']) {
                     <button class="btn btn-primary btn-sm" type="submit">Создать аккаунт</button>
 
                 </form>
+
+            <?php
+            $message = $_SESSION['message_bad'] ?? '';
+            if (!empty($message)) {
+                echo '<div class="alert alert-danger">' . $message . '</div>';
+                unset($_SESSION['message_bad']);
+            }
+            ?>
+
+    </section>
+
 
 
 </body>

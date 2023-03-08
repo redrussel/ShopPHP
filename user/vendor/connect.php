@@ -2,7 +2,7 @@
 
 //mysqli_connect
 
-$connect = mysqli_connect('localhost', 'root', 'mysql', 'shop');
+$connect = mysqli_connect('localhost', 'root','','shop');
 
 
 if (!$connect) {

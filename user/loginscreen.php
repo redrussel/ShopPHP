@@ -25,25 +25,7 @@ if ($_SESSION['user']) {
   </header>
 
 
-
-      <?php
-      $message = $_SESSION['message_good'] ?? '';
-      if (!empty($message)) {
-        echo '<div class="alert alert-success">' . $message . '</div>';
-        unset($_SESSION['message_good']);
-      }
-      ?>
-
-      <?php
-      $message = $_SESSION['message_bad'] ?? '';
-      if (!empty($message)) {
-        echo '<div class="alert alert-danger">' . $message . '</div>';
-        unset($_SESSION['message_bad']);
-      }
-      ?>
-
-
-
+  <section class="d-flex justify-content-center align-items-center-center">
 
         <form action="vendor/signin.php" method="post">
 
@@ -58,6 +40,23 @@ if ($_SESSION['user']) {
           <a href="register.php">Зарегистрироваться</a>
 
         </form>
+
+      <?php
+      $message = $_SESSION['message_good'] ?? '';
+      if (!empty($message)) {
+          echo '<div class="alert alert-success">' . $message . '</div>';
+          unset($_SESSION['message_good']);
+      }
+      ?>
+
+      <?php
+      $message = $_SESSION['message_bad'] ?? '';
+      if (!empty($message)) {
+          echo '<div class="alert alert-danger">' . $message . '</div>';
+          unset($_SESSION['message_bad']);
+      }
+      ?>
+  </section>
 
 </body>
 
