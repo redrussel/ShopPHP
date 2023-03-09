@@ -2,11 +2,11 @@
 session_start();
 require_once ('connect.php');
 
-$email = $_POST['email'];
+$login = $_POST['login'];
 $pass = md5($_POST['pass']);
 
 
-$check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `email` = '$email' AND `pass` = '$pass'");
+$check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
 if (mysqli_num_rows($check_user) > 0) {
 
     $user = mysqli_fetch_assoc($check_user);
