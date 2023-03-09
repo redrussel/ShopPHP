@@ -37,11 +37,11 @@ if ($_SESSION['user']) {
 
 
                     <label class="col-sm-2 col-form-label">Пароль</label>
-                    <input type="password" name="password" class="form-control" placeholder="Введите пароль">
+                    <input type="password" name="pass" class="form-control" placeholder="Введите пароль">
 
 
                     <label class="col-sm-2 col-form-label">Подтверждение пароля</label>
-                    <input type="password" name="password_confirm" class="form-control" placeholder="Введите пароль ещё раз">
+                    <input type="password" name="pass_confirm" class="form-control" placeholder="Введите пароль ещё раз">
 
 
                     <label class="col-sm-2 col-form-label">Аватар</label>

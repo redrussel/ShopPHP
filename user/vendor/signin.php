@@ -3,10 +3,10 @@ session_start();
 require_once ('connect.php');
 
 $email = $_POST['email'];
-$password = md5($_POST['password']);
+$pass = md5($_POST['pass']);
 
 
-$check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'");
+$check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `email` = '$email' AND `pass` = '$pass'");
 if (mysqli_num_rows($check_user) > 0) {
 
     $user = mysqli_fetch_assoc($check_user);
@@ -16,7 +16,6 @@ if (mysqli_num_rows($check_user) > 0) {
         "email"=> $user['email'],
         "login"=> $user['login'],
         "avatar"=> $user['avatar'],
-        "reg_date"=> $user['reg_date']
     ];
     header('Location: ../profile.php');
 

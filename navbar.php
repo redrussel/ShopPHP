@@ -42,7 +42,7 @@
 
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Главная</a>           <!-- 1 кнопка  -->
+                            <a class="nav-link active" aria-current="page" href="http://shopproject/IronMaster">Главная</a>           <!-- 1 кнопка  -->
                         </li>
 
                         <li class="nav-item dropdown">                 <!-- Выдвижное меню -->
@@ -60,7 +60,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost:63342/www/IronMaster/user/loginscreen.php?_ijt=govaokbuq56sucfvdl9ubeijve&_ij_reload=RELOAD_ON_SAVE">Войти</a>   <!-- 2 кнопка -->
+                            <a class="nav-link" href="user/loginscreen.php">Войти</a>   <!-- 2 кнопка -->
                         </li>
 
                     </ul>

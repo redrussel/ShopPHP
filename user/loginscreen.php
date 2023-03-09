@@ -25,7 +25,7 @@ if ($_SESSION['user']) {
   </header>
 
 
-  <section class="d-flex justify-content-center align-items-center-center">
+  <section id="hero" class="d-flex justify-content-center align-items-center-center">
 
         <form action="vendor/signin.php" method="post">
 
@@ -33,7 +33,7 @@ if ($_SESSION['user']) {
           <input type="email" name="email" class="form-control" id="inputPassword" placeholder="Введите свою почту">
 
           <label for="inputPassword" class="col-sm-2 col-form-label">Пароль</label>
-          <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Введите пароль">
+          <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Введите пароль">
 
           <button type="submit" class="btn btn-primary btn-sm">Войти</button>
 
