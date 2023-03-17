@@ -19,7 +19,7 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <body>
-  <header>
+  <header> 
    <?php include 'navbar.php' ?>
 
   </header>
@@ -33,15 +33,14 @@ if (isset($_SESSION['user'])) {
                   <input type="text" name="login" class="form-control" placeholder="Введите логин">
 
                   <label for="inputPassword" class="col-sm-2 col-form-label">Пароль</label>
-                  <input type="password" name="pass" class="form-control" placeholder="Введите пароль">
+                  <input type="password" name="password" class="form-control" placeholder="Введите пароль">
 
                   <button type="submit" class="login-btn btn btn-primary">Войти</button>
 
                   <a href="register.php">Зарегистрироваться</a>
 
-                  <div class="alert alert-success">Lorem ipsum dolor sit amet, consectetur.</div>
+                  <div class="msg none alert alert-info alert">Lorem ipsum dolor sit amet, consectetur.</div>
 
-                  <div class="alert alert-danger"> Lorem ipsum dolor sit amet.</div>
 
               </form>
               <script src="assets/js/jquery-3.6.4.js"></script>

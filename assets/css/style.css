@@ -49,3 +49,16 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+form, input, button, a {
+  margin: 10px;
+  padding: 5px;
+}
+
+.none {
+  display: none;
+}
+
+.error {
+  border: 2px solid red;
+}
