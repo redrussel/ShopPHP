@@ -1,6 +1,3 @@
-<?php
-?>
-
 
 <!doctype html>
 <html lang="en">
@@ -59,8 +56,10 @@
                             </ul>
                         </li>
 
+
                         <li class="nav-item">
-                            <a class="nav-link" href="loginscreen.php">Войти</a>   <!-- 2 кнопка -->
+                            <a href="loginscreen.php">Войти</a>
+  <!-- 2 кнопка -->
                         </li>
 
                     </ul>
