@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
         <div>
 
 
-                <form action="vendor/signup.php" method="post" enctype="multipart/form-data">
+                <form>
 
                     <label class="col-sm-2 col-form-label">E-mail</label>
                     <input type="email" name="email" class="form-control" placeholder="Введите свою почту">
@@ -38,28 +38,25 @@ if (isset($_SESSION['user'])) {
 
 
                     <label class="col-sm-2 col-form-label">Пароль</label>
-                    <input type="password" name="pass" class="form-control" placeholder="Введите пароль">
+                    <input type="password" name="password" class="form-control" placeholder="Введите пароль">
 
 
                     <label class="col-sm-2 col-form-label">Подтверждение пароля</label>
-                    <input type="password" name="pass_confirm" class="form-control" placeholder="Введите пароль ещё раз">
+                    <input type="password" name="password_confirm" class="form-control" placeholder="Введите пароль ещё раз">
 
 
                     <label class="col-sm-2 col-form-label">Аватар</label>
                     <input type="file" name="avatar" class="form-control">
 
 
-                    <button class="btn btn-primary btn-sm" type="submit">Создать аккаунт</button>
+                    <button type="submit" class="register-btn btn btn-primary">Создать аккаунт</button>
+
+                    <p class="msg none alert alert-info alert">Lorem ipsum.</p>
 
                 </form>
 
-                <?php
-                $message = $_SESSION['message_bad'] ?? '';
-                if (!empty($message)) {
-                    echo '<div class="alert alert-danger">' . $message . '</div>';
-                    unset($_SESSION['message_bad']);
-                }
-                ?>
+            <script src="assets/js/jquery-3.6.4.js"></script>
+            <script src="assets/js/main.js"></script>
 
 
         </div>

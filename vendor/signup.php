@@ -1,35 +1,106 @@
 <?php
 session_start();
 
-require_once('connect.php');
+include('connect.php');
 
 
 
 $email = $_POST['email'];
 $login = $_POST['login'];
-$pass = $_POST['pass'];
-$pass_confirm = $_POST['pass_confirm'];
+$password = $_POST['password'];
+$password_confirm = $_POST['password_confirm'];
 
-     
-         if ($pass === $pass_confirm) {     //сравнение идентичности
+$check_login = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$login'");
+if (mysqli_num_rows($check_login) > 0) {
+    $response = [
+        "status" => false,
+        "type" => 1,
+        "message" => "Такой логин уже существует",
+        "fields" => ['login']
+    ];
 
-            $path = 'avatar/' . time() . $_FILES['avatar']['name'];     //Загрузка изображения в переменную $path, вместе с time для уникального значения файла
+    echo json_encode($response);
+    die();
+}
+
+$check_email = mysqli_query($connect, "SELECT * FROM `users` WHERE `email` = '$email'");
+if (mysqli_num_rows($check_email) > 0) {
+    $response = [
+        "status" => false,
+        "type" => 1,
+        "message" => "Пользователь с такой почтой уже существует",
+        "fields" => ['email']
+    ];
+
+    echo json_encode($response);
+    die();
+}
+
+$error_fields = [];
+
+if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)){        //проверим валидацией имейл
+    $error_fields[] = 'email';
+}
+
+if ($login === ''){
+    $error_fields[] = 'login';
+}
+if ($password === ''){
+    $error_fields[] = 'password';
+}
+if ($password_confirm === ''){
+    $error_fields[] = 'password_confirm';
+}
+
+if (!isset($_FILES['avatar'])) {
+    $error_fields[] = 'avatar';
+}
+
+if (!empty($error_fields)){
+    $response = [
+        "status" => false,
+        "type" => 1,
+        "message" => "Проверьте правильность полей",
+        "fields" => $error_fields
+    ];
+
+    echo json_encode($response);
+
+    die();
+}
+
+         if ($password === $password_confirm) {     //сравнение идентичности
+
+            $path = 'uploads/' . time() . $_FILES['avatar']['name'];     //Загрузка изображения в переменную $path, вместе с time для уникального значения файла
             if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {   //Условие проверки (! - если случится ошибка выполнения, то) с функцией загрузки файла на сервер, tmp name является ключом
-                $_SESSION['message'] = 'Ошибка при загрузке изображения';    //То выдаст вот эту ошибку
-                header('Location: ../register.php');                         //И перенаправит сюда(на ту же страницу)
+                $response = [
+                    "status" => false,
+                    "type" => 2,
+                    "message" => "Ошибка при загрузке изображения",
+                ];
+
+                echo json_encode($response);
             }
 
-            $pass = md5($pass);
+            $password = md5($password);
 
-            mysqli_query($connect, "INSERT INTO `users` (`id`, `email`, `login`, `pass`, `avatar`) VALUES (NULL, '$email', '$login', '$pass', '$path')");
-         
-            $_SESSION['message_good'] = 'Вы успешно создали аккаунт!';
-            header('Location: ../loginscreen.php'); 
+            mysqli_query($connect, "INSERT INTO `users` (`id`, `email`, `login`, `password`, `avatar`) VALUES (NULL, '$email', '$login', '$password', '$path')");
+
+             $response = [
+                 "status" => true,
+                 "message" => "Регистрация завершена",
+             ];
+
+             echo json_encode($response);
             
 
 
-         } else {     //else - ИНАЧЕ, если операция false, например 1 === 2 - false(срабатывает else), 1 === 1 - true (не срабатывает else)
-            $_SESSION['message_bad'] = 'Пароли не совпадают! Введите одинаковые значения';
-            header('Location: ../register.php');  //И перенаправит сюда(на ту же страницу)
+         } else {
+             $response = [
+                 "status" => false,
+                 "message" => "Пароли не совпадают",
+             ];
+
+             echo json_encode($response);
          }
 
